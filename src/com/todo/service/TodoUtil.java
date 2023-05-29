@@ -50,4 +50,44 @@ public class TodoUtil {
 		}
 	}
 	
+	//수정
+	public static void updateItem(TodoList l) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("[항목 수정]\n"
+						+ "수정할 항목의 제목을 입력하시오 > ");
+		String title = sc.next().trim();
+		if(!l.isDuplicate(title)) {
+			System.out.println("없는 제목입니다");
+			return;
+		}
+		
+		System.out.println("새 제목 > ");
+		String new_title = sc.next().trim();
+		if(l.isDuplicate(new_title)) {
+			System.out.println("제목이 중복됩니다.");
+			return;
+		}
+		sc.nextLine();
+		System.out.println("새 내용 > ");
+		String new_description = sc.nextLine().trim();
+		for(TodoItem item : l.getList()) {
+			if(item.getTitle().equals(title)) {
+				l.deleteItem(item);
+				TodoItem t = new TodoItem(new_title, new_description);
+				l.addItem(t);
+				System.out.println("수정되었습니다.");
+			}
+		}
+	}
+	
+	public static void listAll(TodoList l) {
+		System.out.println("[전체목록]");
+		for(TodoItem item : l.getList()) {
+			System.out.println(item.toString());
+		}
+	}
+	
+	
 }

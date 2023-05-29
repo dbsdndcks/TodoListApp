@@ -3,6 +3,7 @@ package com.todo;
 import java.util.Scanner;
 
 import com.todo.dao.TodoList;
+import com.todo.menu.Menu;
 import com.todo.service.TodoUtil;
 
 public class TodoMain {
@@ -20,15 +21,19 @@ public class TodoMain {
 			switch (choice) {
 			
 			case "add":
+				TodoUtil.createItem(l);
 				break;
 				
 			case "del":
+				TodoUtil.deleteItem(l);
 				break;
 				
 			case "edit":
+				TodoUtil.updateItem(l);
 				break;
 				
 			case "ls":           //¼Ò¹®ÀÚL
+				TodoUtil.listAll(l);
 				break;
 				
 			case "ls_name_asc":
@@ -51,6 +56,7 @@ public class TodoMain {
 				break;
 				
 			case "help":
+				Menu.displaymenu();
 				break;
 				
 			case "exit":
@@ -62,7 +68,7 @@ public class TodoMain {
 				break;
 			}
 			
-			if(isList)TodoUtil.listAll(l)
+			if(isList)TodoUtil.listAll(l);
 		}while (!quit);
 	}
 }

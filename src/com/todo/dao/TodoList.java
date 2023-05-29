@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.todo.service.TodoSortByDate;
+import com.todo.service.TodoSortByName;
+
 // 할일들의 정보를 리스트로 만들어서 관리하는 곳
 public class TodoList {
 	// List<Todoitem> list는 Todoitem 객체들을 저장할 수 있는 리스트 변수를 선언한 것입니다. 이 변수를 사용하여 '
